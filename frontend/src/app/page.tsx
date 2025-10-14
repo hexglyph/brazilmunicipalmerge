@@ -234,15 +234,6 @@ export default function Home() {
                 próximo (contiguidade ou centróide) até superar 30 mil habitantes.
               </p>
             </div>
-            <div className="space-y-2">
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-slate-100">
-                Reprodutibilidade
-              </h3>
-              <p>
-                Execute <code>python3 src/merge_municipalities.py</code> para atualizar os GeoJSONs e,
-                depois, <code>bun dev</code> em <code>frontend/</code> para visualizar o painel.
-              </p>
-            </div>
           </section>
         </div>
       </main>
