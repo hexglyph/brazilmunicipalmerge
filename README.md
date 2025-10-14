@@ -88,6 +88,13 @@ python3 -m pip install --user -r requirements.txt
 uvicorn generator.main:app --host 0.0.0.0 --port 8000
 ```
 
+Com Docker:
+
+```bash
+docker build -t municipal-generator -f generator/Dockerfile .
+docker run --rm -p 8000:8000 municipal-generator
+```
+
 Endpoints disponíveis:
 
 - `GET /status` — estatísticas do cenário atual.
@@ -107,6 +114,15 @@ para consumir esses endpoints.
 2. No serviço do frontend defina a variável `NEXT_PUBLIC_DATA_API_BASE_URL`
    apontando para a URL pública do gerador.
 3. Opcional: após cada deploy, acione `POST /refresh` no gerador para recomputar os GeoJSONs.
+
+## Docker para o frontend
+
+No diretório `frontend/`:
+
+```bash
+docker build -t municipal-frontend -f Dockerfile .
+docker run --rm -e NEXT_PUBLIC_DATA_API_BASE_URL="http://localhost:8000" -p 3000:3000 municipal-frontend
+```
 
 ## Observações
 

@@ -71,3 +71,12 @@ os arquivos estáticos em `public/data`.
 Qualquer plataforma compatível com Next.js (Vercel, Netlify, etc.) pode ser utilizada.
 Garanta que os arquivos GeoJSON estejam presentes em `public/data` ou configure
 `NEXT_PUBLIC_DATA_API_BASE_URL` para apontar para o serviço gerador.
+
+### Docker
+
+```bash
+docker build -t municipal-frontend -f Dockerfile .
+docker run --rm -p 3000:3000 \
+  -e NEXT_PUBLIC_DATA_API_BASE_URL="http://localhost:8000" \
+  municipal-frontend
+```
