@@ -19,12 +19,12 @@ RUN apt-get update && \
         curl && \
     rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
 COPY src ./src
 COPY generator ./generator
 
 EXPOSE 8000
 
-CMD ["uvicorn", "generator.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["sh", "-c", "uvicorn generator.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
