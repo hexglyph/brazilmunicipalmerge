@@ -1,0 +1,17 @@
+# Python artefacts
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Next.js / Bun artefacts
+frontend/node_modules/
+frontend/.next/
+frontend/.turbo/
+
+# OS metadata
+.DS_Store
+Thumbs.db
