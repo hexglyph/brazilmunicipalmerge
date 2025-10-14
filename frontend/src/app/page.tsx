@@ -16,7 +16,7 @@ export default function Home() {
             alt="Hexglyph logo"
             width={48}
             height={48}
-            className="rounded-xl shadow-md shadow-emerald-500/30"
+            className="rounded-xl"
           />
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-emerald-600 dark:text-emerald-400">
