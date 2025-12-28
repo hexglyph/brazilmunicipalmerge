@@ -3,7 +3,8 @@
 FROM oven/bun:1.2 AS deps
 WORKDIR /app
 COPY bun.lock package.json ./
-RUN bun install --production
+# Install full dependency set (dev deps needed for Next.js/TypeScript during build)
+RUN bun install
 
 FROM oven/bun:1.2 AS builder
 WORKDIR /app
