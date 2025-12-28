@@ -17,5 +17,5 @@ WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=builder /app ./
 EXPOSE 3000
-# Use shell to resolve $PORT (Railway always sets it) with fallback for local runs
-CMD ["sh", "-c", "PORT=${PORT:-3000}; exec bunx next start -H 0.0.0.0 -p $PORT"]
+# Use package script (bun run) and allow Railway's PORT
+CMD ["sh", "-c", "PORT=${PORT:-3000}; exec bun run start -- --hostname 0.0.0.0 --port $PORT"]
